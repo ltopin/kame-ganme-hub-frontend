@@ -1,16 +1,14 @@
 import { Link } from "@tanstack/react-router";
 
-// Ilustração vetorial própria (estante + lanternas) no lugar de uma foto real
-// (ver conversa de design) — mesmo truque do protótipo de referência: imagem
-// de fundo em opacidade baixa com um degradê por cima para manter o texto legível.
 export function CatalogHero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-brass/40 bg-background">
       <img
-        src="/hero-shelf.svg"
-        alt=""
-        aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
+        src="/hero-shop.jpg"
+        alt="Interior de loja de card games com prateleiras de madeira escura e lanternas acesas"
+        width={1600}
+        height={1000}
+        className="absolute inset-0 h-full w-full object-cover opacity-45"
       />
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-background/50" />
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
