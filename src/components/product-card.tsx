@@ -1,32 +1,33 @@
 import { Link } from "@tanstack/react-router";
 
 import { WhatsAppCta } from "@/components/whatsapp-cta";
-import { PriceTag } from "@/components/price-tag";
+import { formatPrice } from "@/lib/format";
 import type { Product } from "@/data/products";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-      <div className="relative">
-        <Link to="/produtos/$slug" params={{ slug: product.slug }} className="block">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="aspect-square w-full object-cover"
-          />
-        </Link>
-        <PriceTag price={product.price} className="absolute -bottom-4 left-4 w-24" />
-      </div>
-      <div className="flex flex-1 flex-col gap-3 p-4 pt-6">
-        <h3 className="font-display text-lg font-semibold text-foreground">
-          <Link to="/produtos/$slug" params={{ slug: product.slug }} className="hover:underline">
+    <article className="group overflow-hidden rounded-md border border-brass/40 bg-panel shadow-lantern transition-colors hover:border-gold/70">
+      <Link
+        to="/produtos/$slug"
+        params={{ slug: product.slug }}
+        className="relative block aspect-square overflow-hidden bg-background"
+      >
+        <img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </Link>
+      <div className="space-y-2 p-4">
+        <h3 className="font-display text-base leading-snug text-parchment">
+          <Link to="/produtos/$slug" params={{ slug: product.slug }} className="hover:text-gold">
             {product.name}
           </Link>
         </h3>
-        <div className="mt-auto">
-          <WhatsAppCta productName={product.name} />
-        </div>
+        <p className="font-display text-lg text-gold">{formatPrice(product.price)}</p>
+        <WhatsAppCta productName={product.name} className="mt-1" />
       </div>
-    </div>
+    </article>
   );
 }

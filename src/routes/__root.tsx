@@ -9,6 +9,8 @@ import {
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 function NotFoundComponent() {
   return (
@@ -83,7 +85,7 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Karla:wght@400;500;600&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
@@ -110,5 +112,13 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <div className="flex min-h-screen flex-col bg-background">
+      <SiteHeader />
+      <div className="flex-1">
+        <Outlet />
+      </div>
+      <SiteFooter />
+    </div>
+  );
 }

@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CatalogoRouteImport } from './routes/catalogo'
 import { Route as ProdutosSlugRouteImport } from './routes/produtos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatalogoRoute = CatalogoRouteImport.update({
+  id: '/catalogo',
+  path: '/catalogo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutosSlugRoute = ProdutosSlugRouteImport.update({
@@ -25,27 +31,31 @@ const ProdutosSlugRoute = ProdutosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/catalogo': typeof CatalogoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/catalogo': typeof CatalogoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/catalogo': typeof CatalogoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/produtos/$slug'
+  fullPaths: '/' | '/catalogo' | '/produtos/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/produtos/$slug'
-  id: '__root__' | '/' | '/produtos/$slug'
+  to: '/' | '/catalogo' | '/produtos/$slug'
+  id: '__root__' | '/' | '/catalogo' | '/produtos/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CatalogoRoute: typeof CatalogoRoute
   ProdutosSlugRoute: typeof ProdutosSlugRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catalogo': {
+      id: '/catalogo'
+      path: '/catalogo'
+      fullPath: '/catalogo'
+      preLoaderRoute: typeof CatalogoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produtos/$slug': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CatalogoRoute: CatalogoRoute,
   ProdutosSlugRoute: ProdutosSlugRoute,
 }
 export const routeTree = rootRouteImport
