@@ -4,7 +4,17 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Identidade visual "covil do Kame Game": loja de curiosidades TCG, casco de
+ * tartaruga como motivo de assinatura (selo hexagonal de preço). Ver
+ * conversa de design — paleta jade + dourado-lanterna sobre pergaminho.
+ */
+
 @theme inline {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -27,27 +37,42 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+
+  --color-hero: var(--hero-bg);
+  --color-hero-end: var(--hero-bg-end);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-line: var(--hero-line);
+  --color-medallion: var(--medallion);
+  --color-medallion-foreground: var(--medallion-foreground);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.985 0.004 197);
-  --foreground: oklch(0.24 0.028 214);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.028 214);
-  --primary: oklch(0.55 0.16 155);
-  --primary-foreground: oklch(0.985 0.006 197);
-  --secondary: oklch(0.945 0.017 197);
-  --secondary-foreground: oklch(0.33 0.05 200);
-  --muted: oklch(0.955 0.01 200);
-  --muted-foreground: oklch(0.53 0.024 214);
-  --accent: oklch(0.93 0.03 195);
-  --accent-foreground: oklch(0.33 0.05 200);
-  --destructive: oklch(0.552 0.19 22);
-  --destructive-foreground: oklch(0.985 0.006 197);
-  --border: oklch(0.905 0.012 200);
-  --input: oklch(0.905 0.012 200);
-  --ring: oklch(0.55 0.16 155);
+  --radius: 0.75rem;
+
+  --background: #f3ecdc;
+  --foreground: #241c15;
+  --card: #fbf6ec;
+  --card-foreground: #241c15;
+  --primary: #c98a3b;
+  --primary-foreground: #2a1b0a;
+  --secondary: #e4d9c0;
+  --secondary-foreground: #241c15;
+  --muted: #e9e0cc;
+  --muted-foreground: #6b5d48;
+  --accent: #1f4d3a;
+  --accent-foreground: #f3ecdc;
+  --destructive: #a3402e;
+  --destructive-foreground: #f3ecdc;
+  --border: #d9c9a6;
+  --input: #d9c9a6;
+  --ring: #c98a3b;
+
+  --hero-bg: #163a2c;
+  --hero-bg-end: #1f4e3b;
+  --hero-foreground: #f3ecdc;
+  --hero-line: #3e6350;
+  --medallion: #1f4d3a;
+  --medallion-foreground: #f0c98a;
 }
 
 @layer base {
@@ -58,5 +83,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
   }
 }
