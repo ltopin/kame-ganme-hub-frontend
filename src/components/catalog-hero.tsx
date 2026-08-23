@@ -1,11 +1,18 @@
 import { Link } from "@tanstack/react-router";
 
-// Sem foto de fundo aqui (ver conversa): a referência usa uma imagem de
-// interior de loja específica do protótipo deles, que não é nossa para
-// reutilizar. Gradiente jade fica no mesmo espírito "covil iluminado".
+// Ilustração vetorial própria (estante + lanternas) no lugar de uma foto real
+// (ver conversa de design) — mesmo truque do protótipo de referência: imagem
+// de fundo em opacidade baixa com um degradê por cima para manter o texto legível.
 export function CatalogHero() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-brass/40 bg-linear-to-br from-background via-panel/60 to-background">
+    <section className="relative isolate overflow-hidden border-b border-brass/40 bg-background">
+      <img
+        src="/hero-shelf.svg"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover opacity-70"
+      />
+      <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-background/50" />
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
         <p className="font-display text-xs tracking-[0.35em] text-copper uppercase">
           The Old Wise Man&apos;s TCG &amp; Curios
