@@ -65,6 +65,38 @@ export const products: Product[] = [
       "Toploader rígido individual, ideal para proteger cartas de maior valor contra dobras e impactos.",
     image: "/products/toploader-un.jpg",
   },
+  {
+    slug: "camiseta-infantil-pokemon-treinador",
+    name: "Camiseta Infantil Pokémon Treinador",
+    price: 65.0,
+    description:
+      "Camiseta infantil preta com estampa Pokémon: logo discreto na frente e estampa completa nas costas com o treinador e seus Pokémon. Disponível nos tamanhos 6 a 14.",
+    image: "/products/camiseta-infantil-6-a-14.jpeg",
+  },
+  {
+    slug: "camiseta-infantil-pokebola",
+    name: "Camiseta Infantil Pokébola",
+    price: 65.0,
+    description:
+      "Camiseta infantil preta com estampa de Pokébola formada por silhuetas de Pokémon nas cores vermelho e branco. Disponível nos tamanhos 6 a 14.",
+    image: "/products/camiseta-infantil-6-a-14-pokemon.jpeg",
+  },
+  {
+    slug: "camiseta-adulto-mewtwo",
+    name: "Camiseta Adulto Mewtwo",
+    price: 90.0,
+    description:
+      "Camiseta adulta preta com estampa artística de Mewtwo em tons de vermelho e caracteres japoneses. Disponível nos tamanhos M, G e GG.",
+    image: "/products/camiseta-adulto.jpeg",
+  },
+  {
+    slug: "camiseta-adulto-pikachu-galaxias",
+    name: "Camiseta Adulto Pikachu das Galáxias",
+    price: 90.0,
+    description:
+      "Camiseta adulta preta com estampa divertida do Pikachu em paródia de Star Wars, com os dizeres \"Pika das Galáxias\". Disponível nos tamanhos M, G e GG.",
+    image: "/products/camiseta-adulto-pikachu.jpeg",
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
